@@ -1,0 +1,32 @@
+server:
+  port: 8003
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-cms
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/gili_edu?ServerTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    timezone: GMT+8
+#??????
+
+#mybatis-plus????
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  mapper-locations: classpath:com/chen/cms/mapper/xml/*.xml
+
+
+
+
+

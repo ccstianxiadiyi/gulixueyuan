@@ -1,0 +1,22 @@
+server:
+  port: 8004
+spring:
+  profiles:
+    active: dev
+  application:
+    name: service-msm
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/gili_edu?ServerTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: root123
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+#mybatis-plus相关配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

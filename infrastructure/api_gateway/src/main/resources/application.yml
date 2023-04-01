@@ -1,0 +1,39 @@
+server:
+  port: 8007
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: service-cms
+          uri: http://127.0.0.1:8003
+          predicates:
+            - Path=/cmsservice/**
+        - id: service-edu
+          uri: http://127.0.0.1:8001
+          predicates:
+            - Path=/edu/**
+        - id: service-msm
+          uri: http://127.0.0.1:8004
+          predicates:
+            - Path=/servicemsm/**
+        - id: service-order
+          uri: http://127.0.0.1:8005
+          predicates:
+            - Path=/orderservice/**
+        - id: service-statistics
+          uri: http://127.0.0.1:8006
+          predicates:
+            - Path=/statisticsservice/**
+        - id: service-ucenter
+          uri: http://127.0.0.1:8160
+          predicates:
+            - Path=/userservice/**
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
